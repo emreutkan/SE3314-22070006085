@@ -3,41 +3,59 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Represents a game with characters and their interactions.
+ */
 public class Game {
-    private List<Character> characters = new ArrayList<>();
 
-    public void addCharacter(Character character){
+    /**
+     *  List of characters.
+     */
+    private final List<Character> characters = new ArrayList<>();
+
+    /**
+     * Adds a character to the game.
+     * @param character The character to be added.
+     */
+    public void addCharacter(final Character character) {
         characters.add(character);
     }
 
-    public void StartGame() {
-        int turn = 0; boolean gameOver = false; // Violates EmptyLineSeparator
-        while (!gameOver) {
-            Character attacker = characters.get(turn % characters.size());
-            Character defender = characters.get((turn + 1) % characters.size());
+    /**
+     * Starts the game.
+     */
+    public void startGame() {
+        int turn = 0;
+        boolean gameOver = false;
 
+        while (!gameOver) {
+            final Character attacker
+                    = characters.get(turn % characters.size());
+            final Character defender
+                    = characters.get(turn % characters.size());
             attacker.specialAttack(defender);
-            System.out.println(attacker.getName() + " attacks " + defender.getName());
+            System.out.println(
+                    attacker.getName() + " attacks " + defender.getName());
 
             if (defender.isDefeated()) {
                 System.out.println(defender.getName() + " is defeated!");
-                gameOver = true; // Use of local variable instead of a method to check game over state
+                gameOver = true;
             }
 
             turn++;
         }
     }
 
+    /**
+     * Checks if the game is over.
+     * @return True if the game is over, otherwise false.
+     */
     private boolean isGameOver() {
-        for(Character character : characters) {
-            if(character.isDefeated()) {
-                return true; // Multiple return statements
+        for (final Character character : characters) {
+            if (character.isDefeated()) {
+                return true;
             }
         }
         return false;
     }
 }
-
