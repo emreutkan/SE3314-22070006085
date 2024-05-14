@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="/Users/emre/IdeaProjects/week12/src/main/java/org/example/App.java">
+<error line="10" column="9" severity="error" message="Distance between variable &apos;exampleUsage&apos; declaration and its first usage is 12, but allowed 3.  Consider making that variable final if you still need to store its value in advance (before method calls that might have side effects on the original value)." source="com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheck"/>
+</file>
+<file name="/Users/emre/IdeaProjects/week12/src/main/java/org/example/LoopControl.java">
+<error line="36" column="19" severity="error" message="Control variable &apos;m&apos; is modified." source="com.puppycrawl.tools.checkstyle.checks.coding.ModifiedControlVariableCheck"/>
+</file>
+</checkstyle>
