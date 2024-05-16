@@ -20,11 +20,10 @@ public class LoopControl {
     }
 
     public void incorrectVariableUsage() {
-        int index;
         // Some other code
         System.out.println("Preparing to loop...");
-        // Loop starts much later after declaration
-        index = 0;
+        // Declaration and initialization close to the first usage
+        int index = 0; // Moved declaration and initialization closer to the first usage
         for (; index < 5; index++) {
             System.out.println(index);
         }
@@ -46,7 +45,6 @@ public class LoopControl {
         }
     }
 
-
     public void modifiedControlVariable() {
         for (int m = 0; m < 10; m++) {
             if (m == 5) {
@@ -56,6 +54,7 @@ public class LoopControl {
             }
         }
     }
+
     /**
      * Demonstrates how to avoid modifying the control variable inside a loop.
      * Instead, a separate variable is used for any adjustments needed within the loop.
@@ -64,8 +63,8 @@ public class LoopControl {
         for (int m = 0; m < 10; m++) {
             if (m == 5) {
                 System.out.println("Adjusting loop index from " + m);
-                m += 3; // Correct - modifying a separate variable inside the loop
-                System.out.println("to " + m);
+                int adjustedM = m + 3; // Correct - use a separate variable
+                System.out.println("to " + adjustedM);
             }
         }
     }
