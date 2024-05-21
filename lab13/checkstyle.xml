@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <module name="TreeWalker">
+
+        <!-- Law of Demeter (week6) -->
+        <!-- Ensures objects only interact with their immediate friends to promote loose coupling. -->
+        <module name="LawOfDemeter"/>
+
+        <!-- Good Encapsulation: VisibilityModifier (week6) -->
+        <!-- Enforces encapsulation by ensuring class members have the appropriate visibility. -->
+        <module name="VisibilityModifier"/>
+
+        <!-- Good Encapsulation: FinalClass (week6) -->
+        <!-- Ensures classes that can be declared final are explicitly marked as final to prevent subclassing. -->
+        <module name="FinalClass"/>
+
+        <!-- Good Encapsulation: HideUtilityClassConstructor (week6) -->
+        <!-- Ensures utility classes do not have public constructors as they are not meant to be instantiated. -->
+        <module name="HideUtilityClassConstructor"/>
+
+        <!-- Good Encapsulation: DesignForExtension (week6) -->
+        <!-- Ensures classes are designed for extension by providing empty hooks and preventing overriding of non-empty methods. -->
+        <module name="DesignForExtension"/>
+
+        <!-- Good Abstraction: AbstractClassName (week6) -->
+        <!-- Ensures abstract class names follow a specific pattern and are correctly declared as abstract. -->
+        <module name="AbstractClassName"/>
+
+        <!-- Good Abstraction: ClassDataAbstractionCoupling (week6) -->
+        <!-- Limits the number of instantiations of other classes to reduce coupling and improve modularity. -->
+        <module name="ClassDataAbstractionCoupling">
+            <property name="max" value="3"/>
+        </module>
+
+        <!-- Good Abstraction: InterfaceIsType (week6) -->
+        <!-- Ensures interfaces describe types and contain methods, disallowing interfaces with only constants. -->
+        <module name="InterfaceIsType">
+            <property name="allowMarkerInterfaces" value="false"/>
+        </module>
+
+        <!-- Good Inheritance: ClassFanOutComplexity (week6) -->
+        <!-- Measures and limits the number of other types a class relies on to reduce maintenance complexity. -->
+        <module name="ClassFanOutComplexity">
+            <property name="max" value="20"/>
+        </module>
+
+        <!-- Good Inheritance: AvoidStarImport (week6) -->
+        <!-- Disallows the use of wildcard imports to prevent tight coupling and improve code clarity. -->
+        <module name="AvoidStarImport"/>
+
+        <!-- Good Inheritance: MissingOverride (week6) -->
+        <!-- Ensures the @Override annotation is present for methods overriding a superclass method to improve readability and correctness. -->
+        <module name="MissingOverride"/>
+
+        <!-- Member Functions: MissingCtor (week6) -->
+        <!-- Ensures non-abstract classes define a constructor and don't rely on the default constructor. -->
+        <module name="MissingCtor"/>
+
+        <!-- Member Functions: OverloadMethodsDeclarationOrder (week6) -->
+        <!-- Checks that overloaded methods are grouped together to improve code readability and organization. -->
+        <module name="OverloadMethodsDeclarationOrder"/>
+
+        <!-- Member Functions: MethodCountCheck (week6) -->
+        <!-- Limits the number of methods declared in a class to maintain simplicity and manageability. -->
+        <module name="MethodCountCheck">
+            <property name="maxTotal" value="20"/>
+        </module>
+
+        <!-- Class Internals: InnerTypeLast (week6) -->
+        <!-- Ensures nested classes are declared at the bottom of the outer class to improve code readability and organization. -->
+        <module name="InnerTypeLast"/>
+
+        <!-- High Quality Routines: MethodName (week8) -->
+        <!-- Checks if method names conform to a specified pattern. By default, it is forbidden to start a method name with a capital letter. -->
+        <module name="MethodName"/>
+
+        <!-- High Quality Routines: MethodLength (week8) -->
+        <!-- As a method becomes very long, it is hard to understand. Therefore, long methods should usually be refactored into several individual methods. -->
+        <module name="MethodLength">
+            <property name="max" value="40"/>
+        </module>
+
+        <!-- High Quality Routines: MethodParamPad (week8) -->
+        <!-- Checks the padding between the identifier of a method definition, constructor definition, method call, or constructor invocation. -->
+        <module name="MethodParamPad"/>
+
+        <!-- High Quality Routines: MethodTypeParameterName (week8) -->
+        <!-- Checks that method type parameter names conform to a specified pattern. -->
+        <module name="MethodTypeParameterName"/>
+
+        <!-- High Quality Routines: FinalParameters (week8) -->
+        <!-- Checks that parameters for methods, constructors, catch, and for-each blocks are final. -->
+        <module name="FinalParameters"/>
+
+        <!-- High Quality Routines: ParameterName (week8) -->
+        <!-- Checks that method parameter names conform to a specified pattern. -->
+        <module name="ParameterName"/>
+
+        <!-- High Quality Routines: ParameterNumber (week8) -->
+        <!-- Checks the number of parameters of a method or constructor. -->
+        <module name="ParameterNumber">
+            <property name="max" value="7"/>
+        </module>
+
+        <!-- High Quality Routines: EmptyLineSeparator (week8) -->
+        <!-- Checks for empty line separators before package, import declarations, fields, constructors, methods, nested classes, static initializers, and instance initializers. -->
+        <module name="EmptyLineSeparator"/>
+
+        <!-- High Quality Routines: RequireThis (week8) -->
+        <!-- Checks that references to instance variables and methods of the present object are explicitly of the form this.varName or this.methodName(args). -->
+        <module name="RequireThis"/>
+
+        <!-- High Quality Routines: ReturnCount (week8) -->
+        <!-- Restricts the number of return statements in methods, constructors, and lambda expressions. -->
+        <module name="ReturnCount">
+            <property name="max" value="3"/>
+        </module>
+
+        <!-- High Quality Routines: JavaNCSS (week8) -->
+        <!-- Determines the complexity of methods, classes, and files by counting the Non-Commenting Source Statements (NCSS). -->
+        <module name="JavaNCSS"/>
+
+        <!-- Java Specific Checks: CovariantEquals (week8) -->
+        <!-- Checks that classes and records which define a covariant equals() method also override method equals(Object). -->
+        <module name="CovariantEquals"/>
+
+        <!-- Java Specific Checks: SuperClone (week8) -->
+        <!-- Checks that an overriding clone() method invokes super.clone(). -->
+        <module name="SuperClone"/>
+
+        <!-- Java Specific Checks: SuperFinalize (week8) -->
+        <!-- Checks that an overriding finalize() method invokes super.finalize(). -->
+        <module name="SuperFinalize"/>
+
+        <!-- General Issues in Using Variables: MemberName (week10) -->
+        <!-- Checks that instance variable names conform to a specified pattern. -->
+        <module name="MemberName"/>
+
+        <!-- General Issues in Using Variables: LocalVariableName (week10) -->
+        <!-- Checks that local, non-final variable names conform to a specified pattern. -->
+        <module name="LocalVariableName"/>
+
+        <!-- General Issues in Using Variables: StaticVariableName (week10) -->
+        <!-- Checks that static, non-final variable names conform to a specified pattern. -->
+        <module name="StaticVariableName"/>
+
+        <!-- General Issues in Using Variables: LocalFinalVariableName (week10) -->
+        <!-- Checks that local final variable names conform to a specified pattern. -->
+        <module name="LocalFinalVariableName"/>
+
+        <!-- General Issues in Using Variables: FinalLocalVariable (week10) -->
+        <!-- Checks that local variables that never have their values changed are declared final. -->
+        <module name="FinalLocalVariable">
+            <property name="tokens" value="VARIABLE_DEF,PARAMETER_DEF"/>
+            <property name="validateEnhancedForLoopVariable" value="false"/>
+        </module>
+
+        <!-- General Issues in Using Variables: MultipleVariableDeclarations (week10) -->
+        <!-- Checks that each variable declaration is in its own statement and on its own line. -->
+        <module name="MultipleVariableDeclarations"/>
+
+        <!-- General Issues in Using Variables: ExplicitInitialization (week10) -->
+        <!-- Checks if variables are initialized to the default value for their type. -->
+        <module name="ExplicitInitialization"/>
+
+        <!-- General Issues in Using Variables: ModifiedControlVariable (week10) -->
+        <!-- Checks that for loop control variables are not modified inside the for block. -->
+        <module name="ModifiedControlVariable"/>
+
+        <!-- General Issues in Using Variables: VariableDeclarationUsageDistance (week10) -->
+        <!-- Checks the distance between the declaration of a variable and its first usage. -->
+        <module name="VariableDeclarationUsageDistance"/>
+
+        <!-- General Issues in Using Variables: UnusedLocalVariable (week10) -->
+        <!-- Checks that a local variable is declared and/or assigned, but not used. -->
+        <module name="UnusedLocalVariable"/>
+
+        <!-- Using Conditionals: NestedIfDepth (week11) -->
+        <!-- Limits the depth of nested if-else statements to prevent overcomplicated conditional blocks. -->
+        <module name="NestedIfDepth">
+            <property name="max" value="3"/>
+        </module>
+
+        <!-- Using Conditionals: EmptyStatement (week11) -->
+        <!-- Detects empty statements (standalone `;` semicolon) which often introduce hard-to-spot bugs. -->
+        <module name="EmptyStatement"/>
+
+        <!-- Using Conditionals: NeedBraces (week11) -->
+        <!-- Ensures braces are used around code blocks for better readability and maintenance. -->
+        <module name="NeedBraces"/>
+
+        <!-- Using Conditionals: EmptyBlock (week11) -->
+        <!-- Checks for empty blocks which should contain at least one statement. -->
+        <module name="EmptyBlock"/>
+
+        <!-- Using Conditionals: AvoidInlineConditionals (week11) -->
+        <!-- Detects and flags inline conditionals as they can become hard to read and are usually discouraged by coding standards. -->
+        <module name="AvoidInlineConditionals"/>
+
+        <!-- Using Conditionals: BooleanExpressionComplexity (week11) -->
+        <!-- Restricts the number of boolean operators in an expression to keep code readable and maintainable. -->
+        <module name="BooleanExpressionComplexity">
+            <property name="max" value="3"/>
+        </module>
+
+        <!-- Using Conditionals: SimplifyBooleanExpression (week11) -->
+        <!-- Checks for over-complicated boolean expressions and suggests simplifications. -->
+        <module name="SimplifyBooleanExpression"/>
+
+        <!-- Using Conditionals: SimplifyBooleanReturn (week11) -->
+        <!-- Checks for over-complicated boolean return statements and suggests simplifications. -->
+        <module name="SimplifyBooleanReturn"/>
+
+        <!-- Using Conditionals: DefaultComesLast (week11) -->
+        <!-- Ensures that the default case in a switch statement comes after all other cases. -->
+        <module name="DefaultComesLast"/>
+
+        <!-- Using Conditionals: MissingSwitchDefault (week11) -->
+        <!-- Ensures that a switch statement has a default clause. -->
+        <module name="MissingSwitchDefault"/>
+
+        <!-- Using Conditionals: FallsThrough (week11) -->
+        <!-- Checks for fall-through in switch statements and ensures that fall-through is intentional and clearly commented. -->
+        <module name="FallsThrough"/>
+        <!-- Controlling Loops: VariableDeclarationUsageDistance (week12) -->
+        <!-- Checks the distance between the declaration of a variable and its first usage. -->
+        <module name="VariableDeclarationUsageDistance">
+            <property name="allowedDistance" value="3"/>
+            <property name="validateEnhancedForLoopVariable" value="false"/>
+        </module>
+
+        <!-- Controlling Loops: ModifiedControlVariable (week12) -->
+        <!-- Checks that for loop control variables are not modified inside the for block. -->
+        <module name="ModifiedControlVariable"/>
+
+        <!-- Controlling Loops: EmptyBlock (week12) -->
+        <!-- Ensures that each block has at least one statement. -->
+        <module name="EmptyBlock"/>
+
+        <!-- Controlling Loops: NeedBraces (week12) -->
+        <!-- Ensures braces are used around code blocks for better readability and maintenance. -->
+        <module name="NeedBraces"/>
+
+        <!-- Defensive Programming: AvoidEmptyCatchBlock (week13) -->
+        <!-- Detects and flags empty `catch` blocks to ensure exceptions are not silently ignored. -->
+        <module name="AvoidEmptyCatchBlock"/>
+
+        <!-- Defensive Programming: AvoidInlineConditionals (week13) -->
+        <!-- Ensures that inline conditionals are not used as they can make code hard to read. -->
+        <module name="AvoidInlineConditionals"/>
+
+        <!-- Defensive Programming: AvoidThrowingRawExceptionTypes (week13) -->
+        <!-- Ensures that raw exception types are not thrown, encouraging the use of specific exceptions. -->
+        <module name="AvoidThrowingRawExceptionTypes"/>
+
+        <!-- Defensive Programming: IllegalCatch (week13) -->
+        <!-- Detects catch clauses that catch generic exception types. -->
+        <module name="IllegalCatch"/>
+
+        <!-- Defensive Programming: IllegalThrows (week13) -->
+        <!-- Detects methods that throw generic exception types. -->
+        <module name="IllegalThrows"/>
+
+        <!-- Defensive Programming: RequireThis (week13) -->
+        <!-- Ensures that references to instance variables and methods of the present object are explicitly of the form `this.varName` or `this.methodName(args)`. -->
+        <module name="RequireThis"/>
+
+        <!-- Defensive Programming: ThrowsCount (week13) -->
+        <!-- Restricts the number of exceptions a method can declare to throw. -->
+        <module name="ThrowsCount">
+            <property name="max" value="3"/>
+        </module>
+
+    </module>
+</module>
